@@ -13,8 +13,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.forecastLabel.text = ""
+        //instantiate a gray Activity Indicator View
+        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        //add the activity to the viewController's view
+        view.addSubview(activityIndicatorView)
+        //position the Activity Indicator View in the center of the view
+        activityIndicatorView.center = view.center
+        //tell the Activity Indicator View to begin animating
+        activityIndicatorView.startAnimating()
+        
         let manager = AFHTTPSessionManager()
-        manager .GET("http://api.openweathermap.org/data/2.5/forecast/daily?q=London&mode=json&units=metric&cnt=1&appid=b9bbdea26355fa342a0d52530f0bb7c1",
+        manager .GET("http://api.openweathermap.org/data/2.5/forecast/daily?q=NewYork&mode=json&units=metric&cnt=1&appid=b9bbdea26355fa342a0d52530f0bb7c1",
                      parameters: nil,
                      progress: nil,
                      success: { (operation: NSURLSessionDataTask,responseObject: AnyObject?) in
@@ -24,6 +34,7 @@ class ViewController: UIViewController {
                                     if let firstWeatherOfDay = tomorrowsWeather[0] as? NSDictionary {
                                         if let forecast = firstWeatherOfDay["description"] as? String {
                                             self.forecastLabel.text = forecast
+                                            activityIndicatorView.removeFromSuperview()
                                         }
                                     }
                                 }
