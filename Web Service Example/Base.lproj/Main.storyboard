@@ -18,18 +18,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j68-eI-Pwj">
-                                <rect key="frame" x="20" y="289" width="560" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j68-eI-Pwj">
+                                <rect key="frame" x="20" y="275" width="560" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="86" id="FA1-Qh-bdK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DamascusSemiBold" family="Damascus" pointSize="50"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Weather in New York:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWd-NX-w9w">
+                                <rect key="frame" x="201" y="232" width="198" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.62424568970000005" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="j68-eI-Pwj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="AdQ-ud-bib"/>
-                            <constraint firstItem="j68-eI-Pwj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="J8c-JQ-hcx"/>
-                            <constraint firstItem="j68-eI-Pwj" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="xlt-fy-eQa"/>
+                            <constraint firstItem="j68-eI-Pwj" firstAttribute="top" secondItem="fWd-NX-w9w" secondAttribute="bottom" constant="22" id="DFR-nP-1cl"/>
+                            <constraint firstItem="j68-eI-Pwj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bpg-Xx-4Gx"/>
+                            <constraint firstItem="j68-eI-Pwj" firstAttribute="centerX" secondItem="fWd-NX-w9w" secondAttribute="centerX" id="eb5-uK-XEe"/>
+                            <constraint firstItem="j68-eI-Pwj" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="jI4-r8-Ghp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="j68-eI-Pwj" secondAttribute="bottom" constant="239" id="rDf-Qh-YKv"/>
                         </constraints>
                     </view>
                     <connections>
