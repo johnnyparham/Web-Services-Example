@@ -25,16 +25,34 @@ class ViewController: UIViewController {
         activityIndicatorView.startAnimating()
         
         let manager = AFHTTPSessionManager()
-        manager .GET("http://api.openweathermap.org/data/2.5/forecast/daily?q=NewYork&mode=json&units=metric&cnt=1&appid=b9bbdea26355fa342a0d52530f0bb7c1",
+        manager .GET("http://api.openweathermap.org/data/2.5/forecast/daily?q=NewYork&mode=json&units=imperial&cnt=1&appid=b9bbdea26355fa342a0d52530f0bb7c1",
                      parameters: nil,
                      progress: nil,
                      success: { (operation: NSURLSessionDataTask,responseObject: AnyObject?) in
                         if let responseObject = responseObject {
                             print("Returned: " + responseObject.description)
                             let json = JSON(responseObject)
+                            
+                            //Get conditions
                             if let forecast = json["list"][0]["weather"][0]["description"].string {
                                 self.forecastLabel.text = forecast
                             }
+                            //Get city locations
+                            if let location = json["city"]["name"].string {
+                                self.cityName.text = location
+                            }
+                            //Get high temp
+                            if let dayWeather = json["list"][0]["temp"]["max"].double {
+                                self.tempLabel.text = "\(self.fixTempForDisplay(dayWeather))"
+                            }
+                            //Get low temp
+                            if let nightWeather = json["list"][0]["temp"]["min"].double {
+                                self.tempNightLabel.text = "\(self.fixTempForDisplay(nightWeather))"
+                            }
+                            
+                            
+                            
+                            
 //                        if let listOfDays = responseObject!["list"] as? NSArray {
 //                            if let tomorrow = listOfDays[0] as? NSDictionary {
 //                                if let tomorrowsWeather = tomorrow["weather"] as? NSArray {
@@ -60,11 +78,21 @@ class ViewController: UIViewController {
     }
     
 
+   
+    @IBOutlet weak var tempNightLabel: UILabel!
+    @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var forecastLabel: UILabel!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func fixTempForDisplay(temp: Double) -> String {
+        
+        let tempString = String(format: "%.0f", temp)
+        return tempString
     }
 
 
