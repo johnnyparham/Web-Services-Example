@@ -62,21 +62,42 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0u-QP-0LW">
+                                <rect key="frame" x="404" y="43" width="61" height="30"/>
+                                <state key="normal" title="Get Data"/>
+                                <connections>
+                                    <action selector="getDataButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z0U-s0-uvq"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aMS-Fa-iWP" userLabel="Enter City">
+                                <rect key="frame" x="221" y="32" width="159" height="52"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="159" id="fv6-hr-ePq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.62424568970000005" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="gBV-YV-FiG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="97" id="0nR-bm-6B8"/>
                             <constraint firstItem="aZz-bA-yM7" firstAttribute="baseline" secondItem="v2g-hh-nPt" secondAttribute="baseline" id="3gU-Px-Ald"/>
+                            <constraint firstItem="aMS-Fa-iWP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="12" id="6HH-Sf-AfV"/>
                             <constraint firstItem="5i5-mP-f5N" firstAttribute="top" secondItem="aZz-bA-yM7" secondAttribute="bottom" constant="15" id="8DM-LJ-n4b"/>
+                            <constraint firstItem="N0u-QP-0LW" firstAttribute="leading" secondItem="aMS-Fa-iWP" secondAttribute="trailing" constant="24" id="9QL-cZ-Nx0"/>
                             <constraint firstItem="j68-eI-Pwj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ham-nG-p0c"/>
                             <constraint firstItem="j68-eI-Pwj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Hvz-Mi-Sk1"/>
                             <constraint firstItem="v2g-hh-nPt" firstAttribute="leading" secondItem="aZz-bA-yM7" secondAttribute="trailing" constant="48" id="Moh-jF-Jfx"/>
+                            <constraint firstItem="gBV-YV-FiG" firstAttribute="top" secondItem="aMS-Fa-iWP" secondAttribute="bottom" constant="33" id="Nmu-WI-D4D"/>
+                            <constraint firstItem="aMS-Fa-iWP" firstAttribute="centerX" secondItem="gBV-YV-FiG" secondAttribute="centerX" id="UnD-td-VWq"/>
                             <constraint firstItem="aZz-bA-yM7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="254" id="VyA-fj-B1q"/>
                             <constraint firstItem="5i5-mP-f5N" firstAttribute="top" secondItem="aZz-bA-yM7" secondAttribute="bottom" constant="15" id="bEZ-yc-Qdh"/>
                             <constraint firstItem="aZz-bA-yM7" firstAttribute="top" secondItem="j68-eI-Pwj" secondAttribute="bottom" constant="21" id="dS7-v1-0N5"/>
                             <constraint firstItem="aZz-bA-yM7" firstAttribute="baseline" secondItem="v2g-hh-nPt" secondAttribute="baseline" id="dcL-Q1-dpJ"/>
                             <constraint firstItem="aZz-bA-yM7" firstAttribute="top" secondItem="j68-eI-Pwj" secondAttribute="bottom" constant="21" id="dqj-40-pAn"/>
                             <constraint firstItem="v2g-hh-nPt" firstAttribute="baseline" secondItem="aZz-bA-yM7" secondAttribute="firstBaseline" id="joO-M2-FSm"/>
+                            <constraint firstItem="N0u-QP-0LW" firstAttribute="centerY" secondItem="aMS-Fa-iWP" secondAttribute="centerY" id="lZN-cB-Mqx"/>
                             <constraint firstItem="5i5-mP-f5N" firstAttribute="baseline" secondItem="ZDU-hC-SGJ" secondAttribute="baseline" id="p3P-rL-was"/>
                             <constraint firstItem="aZz-bA-yM7" firstAttribute="trailing" secondItem="5i5-mP-f5N" secondAttribute="trailing" id="qiv-un-1Qy"/>
                             <constraint firstItem="j68-eI-Pwj" firstAttribute="centerX" secondItem="v2g-hh-nPt" secondAttribute="centerX" id="saM-5Q-Tb7"/>
@@ -98,7 +119,9 @@
                     </view>
                     <connections>
                         <outlet property="cityName" destination="gBV-YV-FiG" id="5wp-RO-u7I"/>
+                        <outlet property="cityNameTextField" destination="aMS-Fa-iWP" id="xRp-tf-pei"/>
                         <outlet property="forecastLabel" destination="j68-eI-Pwj" id="bWF-es-fog"/>
+                        <outlet property="getDataButton" destination="N0u-QP-0LW" id="o48-PJ-rq9"/>
                         <outlet property="tempLabel" destination="v2g-hh-nPt" id="y3D-qc-gyG"/>
                         <outlet property="tempNightLabel" destination="ZDU-hC-SGJ" id="qGe-Nx-ibr"/>
                     </connections>
